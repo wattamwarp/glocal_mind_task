@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:http/http.dart' as http  ;
 
-import 'Note.dart';
+// Main file
 void main() {
   runApp(MaterialApp(
     home: HomePage(),
