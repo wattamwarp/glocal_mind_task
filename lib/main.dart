@@ -42,29 +42,35 @@ class _HomePageState extends State<HomePage> {
   void sendInfo({String email,String name,String callbackurl})
   async{
     var res;
-    var token ="f106f5805b2ad31d6ba0d4ef5b8f13c773a389cf46e5853656c690a72f75a8e6";
+    //var token ="f106f5805b2ad31d6ba0d4ef5b8f13c773a389cf46e5853656c690a72f75a8e6";
+    //var token1="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcmF0ZWVrIiwiaWF0IjoxNjAzNzE4NjM1LCJleHAiOjE2MDM4MDUwMzV9.OLzd66QdCmvPeXrkVCtWVMAG4RSH17Lr4ZPkM0hnJoK8PhQgBeVNRGU2LW1iRgt4oaGlAxA9cNBHzKEi4ebncQ";
     http.post(
         callbackurl,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          'Authorization': 'Bearer $token',
+          //'Authorization': 'Bearer $token1',
         },
         body: json.encode(
             {
-              "email" : email,
-              "name": name,
-              "gender":"Male",
-              "status":"Active",
+//              "email" : email,
+//              "name": name,
+//              "gender":"Male",
+//              "status":"Active",
+                "username":"prateek",
+                "password":"123456789"
+
             }
         )
     ).then((response){
       res = response.statusCode;
       print("Response body : ");
       print( response.body);
+      print("Response code : ");
+      print( response.statusCode);
       // ignore: unrelated_type_equality_checks
-      if(response.statusCode == '201')
-      print("data is sucessfullt addded ");
+      if(response.statusCode == '200')
+     // print("data is sucessfullt addded ");
 // Perform the required operation(s)
     });
     return res;
@@ -133,7 +139,8 @@ class _HomePageState extends State<HomePage> {
                         final String email1 = email.text;
                         setState(() {
 
-                           sendInfo(name: nam1,email: email1, callbackurl: "https://gorest.co.in/public-api/users");
+                           //sendInfo(name: nam1,email: email1, callbackurl: "https://gorest.co.in/public-api/users");
+                           sendInfo(name: nam1,email: email1, callbackurl: "http://106.51.71.198:8080/api/auth/signin");
 
 
                         });
